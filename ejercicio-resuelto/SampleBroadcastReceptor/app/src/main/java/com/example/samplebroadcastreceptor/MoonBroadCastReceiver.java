@@ -10,11 +10,12 @@ import java.io.OutputStreamWriter;
 
 public class MoonBroadCastReceiver  extends BroadcastReceiver {
     private static final String TAG = "MoonBroadcastReceiver";
-    public static final String EXTRA_MOON_PHASE = "com.example.sampleintentbroadcatreceiver. MoonBroadcastReceiver.EXTRA_MOON_PHASE";
+    public static final String EXTRA_MOON_PHASE = "com.example.sampleintentbroadcatreceiver.MoonBroadcastReceiver.EXTRA_MOON_PHASE";
+    public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        String message =  intent.getStringExtra(EXTRA_MOON_PHASE);
+        String message =  intent.getStringExtra(EXTRA_MESSAGE);
         writeToFile (message, context);
         Log.d(TAG, message);
     }

@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Emisor";
 
     public static final String EXTRA_MOON_PHASE = "com.example.sampleintentbroadcatreceiver.MoonBroadcastReceiver.EXTRA_MOON_PHASE";
+    public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,20 +28,15 @@ public class MainActivity extends AppCompatActivity {
         Button btnSenMessage = findViewById(R.id.btnSendMessage);
         EditText edtMessage = findViewById(R.id.edtMessage);
 
-        btnSenMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String message = edtMessage.getText().toString();
-                sendMessage(message);
-            }
+        btnSenMessage.setOnClickListener(v -> {
+            String message = edtMessage.getText().toString();
+            sendMessage(message);
         });
 
     }
     public void sendMessage(String message) {
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName( "com.example.samplebroadcastreceptor", "com.example.samplebroadcastreceptor.MoonBroadCastReceiver"));
-        intent.setAction(EXTRA_MOON_PHASE);
-        intent.putExtra(EXTRA_MOON_PHASE, message);
+        Intent intent = new Intent(EXTRA_MOON_PHASE);
+        intent.putExtra(EXTRA_MESSAGE, message);
         sendBroadcast(intent);
         Log.d(TAG, "Mensaje enviado");
     }
