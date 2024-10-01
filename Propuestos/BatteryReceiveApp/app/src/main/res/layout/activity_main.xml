@@ -8,12 +8,51 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textBattery"
+        android:id="@+id/textBatteryLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="356dp"
-        android:text="Aquí se debe mostrar la batería"
+        android:layout_marginTop="20dp"
+        android:text="Nivel de batería: 50%"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/batteryProgressBar" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="158dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/battery_status" />
+
+    <TextView
+        android:id="@+id/textBatteryStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Estado de la batería: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <!-- Barra de progreso para mostrar el nivel de la batería -->
+
+    <!-- Texto para el porcentaje de la batería -->
+
+    <ProgressBar
+        android:id="@+id/batteryProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="241dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="20dp"
+        android:max="100"
+        android:progress="50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBatteryStatus"
+        app:layout_constraintWidth_default="spread" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

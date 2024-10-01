@@ -1,12 +1,10 @@
 package com.example.batteryreceiveapp;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Filter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -29,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        TextView textBattery = findViewById(R.id.textBattery);
-        batteryBroadcastReceiver = new BatteryBroadcastReceiver(textBattery);
+        TextView textBatteryStatus = findViewById(R.id.textBatteryStatus);
+        TextView textBatteryLevel = findViewById(R.id.textBatteryLevel);
+        ProgressBar batteryProgressBar = findViewById(R.id.batteryProgressBar);
+
+        batteryBroadcastReceiver = new BatteryBroadcastReceiver(textBatteryStatus, textBatteryLevel, batteryProgressBar);
     }
 
     @Override
